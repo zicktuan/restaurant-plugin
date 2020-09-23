@@ -2,6 +2,7 @@
 namespace MyPlugin\PostType;
 
 use MyPlugin\PostType\MetaBox\Post\PostMetaBox;
+use MyPlugin\PostType\EventsPostType;
 
 /**
  * @author lookawesome team
@@ -14,6 +15,7 @@ class PostTypeInit {
 
 	public function __construct(){
         add_action( 'add_meta_boxes', array(new PostMetaBox($this), 'register') );
+        new EventsPostType();
 	}
 
     public function register(){

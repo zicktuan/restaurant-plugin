@@ -3,12 +3,22 @@ namespace MyPlugin\Shortcode;
 
 use MyPlugin\Shortcode\ShortcodeAbout;
 use MyPlugin\Shortcode\ShortcodeFeedBack;
+use MyPlugin\Shortcode\ShortcodeEvents;
 //use MyPlugin\Shortcode\ShortcodeLatestPosts;
-//use MyPlugin\Shortcode\ShortcodeSlogan;
-//use MyPlugin\Shortcode\ShortcodeProjects;
-//use MyPlugin\Shortcode\ShortcodeReservations;
 
 use MyPlugin\Shortcode\ShortcodeFreshlyTaste;
+use MyPlugin\Shortcode\ShortcodeContacts;
+use MyPlugin\Shortcode\ShortcodeBannerAbout;
+use MyPlugin\Shortcode\About\ShortcodeGeneralIntroduction;
+use MyPlugin\Shortcode\About\ShortcodeAboutFrist;
+use MyPlugin\Shortcode\About\ShortcodeAboutSecond;
+use MyPlugin\Shortcode\About\ShortcodeAboutGallery;
+use MyPlugin\Shortcode\About\ShortcodeAboutBenefits;
+use MyPlugin\Shortcode\Contact\ShortcodeContactGeneral;
+use MyPlugin\Shortcode\Contact\ShortcodeMap;
+use MyPlugin\Shortcode\Contact\ShortcodeContactImg;
+use MyPlugin\Shortcode\Contact\ShortcodeContactForm;
+use MyPlugin\Shortcode\Menu\ShortcodeMenu1;
 
 /**
  * @author lookawesome team
@@ -27,10 +37,20 @@ class ShortcodeInit
         new ShortcodeFreshlyTaste($this);
 		new ShortcodeAbout($this);
 		new ShortcodeFeedBack($this);
+		new ShortcodeEvents($this);
+		new ShortcodeContacts($this);
+		new ShortcodeBannerAbout($this);
+		new ShortcodeGeneralIntroduction($this);
+		new ShortcodeAboutFrist($this);
+		new ShortcodeAboutSecond($this);
+		new ShortcodeAboutGallery($this);
+		new ShortcodeAboutBenefits($this);
+		new ShortcodeContactGeneral($this);
+		new ShortcodeMap($this);
+		new ShortcodeContactImg($this);
+		new ShortcodeContactForm($this);
+		new ShortcodeMenu1($this);
 //		new ShortcodeLatestPosts($this);
-//		new ShortcodeSlogan($this);
-//		new ShortcodeProjects($this);
-//		new ShortcodeReservations($this);
 
 	}
 

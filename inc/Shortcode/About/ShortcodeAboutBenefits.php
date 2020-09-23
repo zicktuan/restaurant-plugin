@@ -1,7 +1,9 @@
 <?php
-    namespace MyPlugin\Shortcode;
+    namespace MyPlugin\Shortcode\About;
 
-    class ShortcodeFeedBack extends AbstractShortcode
+    use MyPlugin\Shortcode\AbstractShortcode;
+
+    class ShortcodeAboutBenefits extends AbstractShortcode
     {
         public function __construct($self = null) {
             $this->parent = $self;
@@ -15,7 +17,7 @@
          * @return string
          */
         public function get_name() {
-            return 'awe_feed_back';
+            return 'awe_res_about_benefits';
         }
 
         /**
@@ -32,7 +34,7 @@
             $listItems = vc_param_group_parse_atts( $atts['items'] );
 
             ob_start();
-            include $this->parent->locateTemplate('shortcode-feed-back.tpl.php');
+            include $this->parent->locateTemplate('about/shortcode-about-benefits.tpl.php');
             return ob_get_clean();
         }
 
@@ -47,41 +49,50 @@
             $params = array(
                 array(
                     'type'       => 'textfield',
-                    'param_name' => 'awe_fb_sub_title',
+                    'param_name' => 'awe_about_benefits_sub_title',
                     'heading'    => esc_html__('Sub title', 'bookawesome')
                 ),
                 array(
                     'type'       => 'textfield',
-                    'param_name' => 'awe_fb_title',
+                    'param_name' => 'awe_about_benefits_title',
                     'heading'    => esc_html__('Title', 'bookawesome')
                 ),
                 array(
                     'type'       => 'param_group',
                     'param_name' => 'items',
-                    'heading'    => esc_html__( 'Items', 'bookawesome' ),
+                    'heading'    => esc_html__( 'List item', 'bookawesome' ),
                     'params'     => array(
                         array(
-                            'type'       => 'attach_image',
-                            'param_name' => 'avt',
-                            'heading'    => esc_html__('Avatar', 'bookawesome')
+                            'type'        => 'dropdown',
+                            'heading'     => __('Icon'),
+                            'param_name'  => 'icon',
+                            'admin_label' => true,
+                            'value'       => array(
+                                'Đồ ăn'         => 'fa-cutlery',
+                                'Team'          => 'fa-users',
+                                'Vận Chuyển'    => 'fa-truck',
+                                'Đồ Uống'       => 'fa-glass',
+                                'Thời Gian'     => 'fa-clock-o',
+                                'Âm Nhạc'       => 'fa-music',
+                            ),
                         ),
                         array(
                             'type'       => 'textfield',
-                            'param_name' => 'name',
-                            'heading'    => esc_html__('Name', 'bookawesome')
+                            'param_name' => 'title',
+                            'heading'    => esc_html__('Title', 'bookawesome')
                         ),
                         array(
                             'type'       => 'textarea',
-                            'param_name' => 'fb',
-                            'heading'    => esc_html__('Feed back', 'bookawesome')
+                            'param_name' => 'desc',
+                            'heading'    => esc_html__('Description', 'bookawesome')
                         )
                     )
                 )
             );
 
             return array(
-                'name'        => esc_html__('Feed back', 'bookawesome'),
-                'description' => esc_html__('Feed back Ngoài Trang Chủ', 'bookawesome'),
+                'name'        => esc_html__('Những Lợi Ích', 'bookawesome'),
+                'description' => esc_html__('Trang Giới Thiệu', 'bookawesome'),
                 'category'    => $this->get_category(),
                 'icon'        => $this->get_icon(),
                 'params'      => $params

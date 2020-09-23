@@ -79,7 +79,7 @@ class ShortcodeAbout extends AbstractShortcode
 
         return array(
             'name'        => esc_html__('Giới Thiệu', 'bookawesome'),
-            'description' => esc_html__('Giới Thiệu', 'bookawesome'),
+            'description' => esc_html__('Giới Thiệu Trang Chủ', 'bookawesome'),
             'category'    => $this->get_category(),
             'icon'        => $this->get_icon(),
             'params'      => $params

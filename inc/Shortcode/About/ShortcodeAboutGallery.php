@@ -1,7 +1,9 @@
 <?php
-    namespace MyPlugin\Shortcode;
+    namespace MyPlugin\Shortcode\About;
 
-    class ShortcodeReservations extends AbstractShortcode
+    use MyPlugin\Shortcode\AbstractShortcode;
+
+    class ShortcodeAboutGallery extends AbstractShortcode
     {
         public function __construct($self = null) {
             $this->parent = $self;
@@ -15,7 +17,7 @@
          * @return string
          */
         public function get_name() {
-            return 'design_construct_reservations';
+            return 'awe_res_about_gallery';
         }
 
         /**
@@ -30,7 +32,7 @@
             $atts = array_map('trim', $atts);
 
             ob_start();
-            include $this->parent->locateTemplate('shortcode-reservations.tpl.php');
+            include $this->parent->locateTemplate('about/shortcode-about-gallery.tpl.php');
             return ob_get_clean();
         }
 
@@ -43,12 +45,26 @@
          */
         public function map() {
             $params = array(
-
+                array(
+                    'type'       => 'attach_images',
+                    'param_name' => 'awe_about_gallery',
+                    'heading'    => esc_html__('Thư viện ảnh', 'bookawesome')
+                ),
+                array(
+                    'type'       => 'textfield',
+                    'param_name' => 'awe_about_gallery_sub_title',
+                    'heading'    => esc_html__('Sub title', 'bookawesome')
+                ),
+                array(
+                    'type'       => 'textfield',
+                    'param_name' => 'awe_about_gallery_title',
+                    'heading'    => esc_html__('Title', 'bookawesome')
+                ),
             );
 
             return array(
-                'name'        => esc_html__('Reservations', 'bookawesome'),
-                'description' => esc_html__('Reservations', 'bookawesome'),
+                'name'        => esc_html__('Thư Viện Ảnh Giới Thiệu', 'bookawesome'),
+                'description' => esc_html__('Trang Giới Thiệu', 'bookawesome'),
                 'category'    => $this->get_category(),
                 'icon'        => $this->get_icon(),
                 'params'      => $params

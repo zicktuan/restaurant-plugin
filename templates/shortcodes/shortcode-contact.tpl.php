@@ -1,20 +1,34 @@
-<div data-section="sections/icons-paralax-img.html">
-    <section class="space-lg bg-image overlay" data-image-src="<?php echo !empty( $atts['awe_contact_bg'] ) ? wp_get_attachment_url($atts['awe_contact_bg']) : '' ?>"
-             data-stellar-background-ratio="0.3" style="background: url(<?php echo !empty( $atts['awe_contact_bg'] ) ? wp_get_attachment_url($atts['awe_contact_bg']) : '' ?>) 0% -51.3516px / cover no-repeat;">
-        <div class="container" data-cloneable="">
-            <div class="row text-center">
-                <?php if( !empty( $listItems ) ): ?>
-                    <?php foreach ( $listItems as $item ): ?>
-                        <div class="col-xs-12 col-sm-3 wow fadeIn">
-                            <div class="icon">
-                                <i class="az-icon <?php echo !empty( $item['awe_contact_item_icon'] ) ? $item['awe_contact_item_icon'] : 'icon-pencil' ?> icon-xl font-white"></i>
+<div class="restbeef_block restbeef_js_bg_image restbeef_height100 restbeef_fullwidth restbeef_js_margin restbeef_home01_block restbeef_content_on_left"
+     data-background="<?php echo !empty($atts['awe_contact_bg']) ? wp_get_attachment_url($atts['awe_contact_bg']) : '' ?>"
+     data-margin="0 0 71px 0"
+>
+    <div class="restbeef_block_inner">
+        <div class="row row_no_gap restbeef_height100">
+            <div class="col-6 restbeef_js_padding restbeef_align_middle" data-padding="50px 0 50px 50px">
+                <div class="restbeef_content_box align_center">
+                    <?php if(!empty($atts['awe_contact_title'])): ?>
+                        <h2>
+                            <?php echo !empty($atts['awe_contact_sub_title']) ? '<span class="restbeef_up_title">'.$atts['awe_contact_sub_title'].'</span>' : ''?>
+                            <?php echo $atts['awe_contact_title'] ?>
+                        </h2>
+                    <?php endif; ?>
+                    <form method="post" id="contact_form">
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" placeholder="<?php echo !empty($atts['awe_contact_email']) ? $atts['awe_contact_email'] : '' ?>" name="your_name"/>
                             </div>
-                            <h6 class="font-white"><?php echo !empty( $item['awe_contact_item_desc'] ) ? $item['awe_contact_item_desc'] : '' ?></h6>
-                            <p class="font-white"><?php echo !empty( $item['awe_contact_item_title'] ) ? $item['awe_contact_item_title'] : '' ?></p>
+                            <div class="col-6">
+                                <input type="email" placeholder="<?php echo !empty($atts['awe_contact_name']) ? $atts['awe_contact_name'] : '' ?>" name="your_email"/>
+                            </div>
                         </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                        <textarea placeholder="<?php echo !empty($atts['awe_contact_content']) ? $atts['awe_contact_content'] : '' ?>" name="your_message"></textarea>
+                        <input type="submit" value="<?php echo !empty($atts['awe_contact_btn_name']) ? $atts['awe_contact_btn_name'] : '' ?>"/>
+                    </form>
+                </div>
+            </div>
+            <div class="col-6 restbeef_js_padding" data-padding="50px 50px 50px 0">
+
             </div>
         </div>
-    </section>
+    </div>
 </div>

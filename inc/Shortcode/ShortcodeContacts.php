@@ -15,7 +15,7 @@ class ShortcodeContacts extends AbstractShortcode
      * @return string
      */
     public function get_name() {
-        return 'design_construct_contact';
+        return 'awe_res_contact';
     }
 
     /**
@@ -28,8 +28,6 @@ class ShortcodeContacts extends AbstractShortcode
     public function render($atts) {
         $atts = vc_map_get_attributes($this->get_name(), $atts);
         $atts = array_map('trim', $atts);
-
-        $listItems = vc_param_group_parse_atts( $atts['items'] );
 
         ob_start();
         include $this->parent->locateTemplate('shortcode-contact.tpl.php');
@@ -51,39 +49,48 @@ class ShortcodeContacts extends AbstractShortcode
                 'heading'    => esc_html__('Background', 'bookawesome')
             ),
             array(
-                'type'       => 'param_group',
-                'param_name' => 'items',
-                'heading'    => esc_html__( 'List Item', 'bookawesome' ),
-                'params'     => array(
-                    array(
-                        'type'        => 'dropdown',
-                        'heading'     => __('Icon'),
-                        'param_name'  => 'awe_contact_item_icon',
-                        'admin_label' => true,
-                        'value'       => array(
-                            'Pencil'     => 'icon-pencil',
-                            'Map'        => 'icon-map-pin',
-                            'Megaphone'  => 'icon-megaphone',
-                            'Tools'      => 'icon-tools',
-                        ),
-                    ),
-                    array(
-                        'type'       => 'textfield',
-                        'param_name' => 'awe_contact_item_desc',
-                        'heading'    => esc_html__('Description', 'bookawesome')
-                    ),
-                    array(
-                        'type'       => 'textfield',
-                        'param_name' => 'awe_contact_item_title',
-                        'heading'    => esc_html__('Title', 'bookawesome')
-                    ),
-                )
-            )
+                'type'       => 'textfield',
+                'param_name' => 'awe_contact_sub_title',
+                'heading'    => esc_html__('Sub Title', 'bookawesome')
+            ),
+            array(
+                'type'       => 'textfield',
+                'param_name' => 'awe_contact_title',
+                'heading'    => esc_html__('Title', 'bookawesome')
+            ),
+            array(
+                'type'       => 'textfield',
+                'param_name' => 'awe_contact_email',
+                'heading'    => esc_html__('Email', 'bookawesome'),
+                'std'        => 'Email',
+                'desc'       => 'Text ô input khi đang trống'
+            ),
+            array(
+                'type'       => 'textfield',
+                'param_name' => 'awe_contact_name',
+                'heading'    => esc_html__('Name', 'bookawesome'),
+                'std'        => 'Tên khách hàng',
+                'desc'       => 'Text ô input khi đang trống'
+            ),
+            array(
+                'type'       => 'textfield',
+                'param_name' => 'awe_contact_content',
+                'heading'    => esc_html__('Content', 'bookawesome'),
+                'std'        => 'Ý kiến khách hàng',
+                'desc'       => 'Text ô input khi đang trống'
+            ),
+            array(
+                'type'       => 'textfield',
+                'param_name' => 'awe_contact_btn_name',
+                'heading'    => esc_html__('Button name', 'bookawesome'),
+                'std'        => 'Gửi tin nhắn của bạn',
+                'desc'       => 'Text ô input khi đang trống'
+            ),
         );
 
         return array(
-            'name'        => esc_html__('Contacts', 'bookawesome'),
-            'description' => esc_html__('Contacts', 'bookawesome'),
+            'name'        => esc_html__('Liên hệ', 'bookawesome'),
+            'description' => esc_html__('Liên hệ Ngoài Trang Chủ', 'bookawesome'),
             'category'    => $this->get_category(),
             'icon'        => $this->get_icon(),
             'params'      => $params

@@ -92,7 +92,7 @@
 
             return array(
                 'name'        => esc_html__('Thực đơn mới', 'bookawesome'),
-                'description' => esc_html__('Thực đơn mới', 'bookawesome'),
+                'description' => esc_html__('Thực Đơn Mới Ngoài Trang Chủ', 'bookawesome'),
                 'category'    => $this->get_category(),
                 'icon'        => $this->get_icon(),
                 'params'      => $params
