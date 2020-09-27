@@ -27,6 +27,7 @@ class General extends SettingFactory
 	    $this->general();
 		$this->header();
 		$this->footer();
+		$this->blog();
 		return $this->fieldsSettings;
 	}
 
@@ -159,6 +160,31 @@ class General extends SettingFactory
                 'type'    => 'text',
                 'section' => 'general_setting',
             ],
+        ];
+        $this->setListSettings($settings);
+    }
+
+    public function blog() {
+        $settings = [
+            [
+                'label'       => __( 'Blog', 'bookawesome' ),
+                'id'          => 'blog',
+                'type'        => 'tab',
+                'section'     => 'general_setting',
+            ],
+
+            [
+                'id'          => 'awe_config_show_blog',
+                'label'       => __( 'Chế Độ Hiển Thị', 'bookawesome' ),
+                'type'        => 'select',
+                'section'     => 'general_setting',
+                'choices'	  => [
+                    ['value' => '0', 'label' => __( 'No Sidebar', 'bookawesome' )],
+                    ['value' => '1', 'label' => __( 'Sidebar', 'bookawesome' )],
+                ]
+            ],
+
+
         ];
         $this->setListSettings($settings);
     }

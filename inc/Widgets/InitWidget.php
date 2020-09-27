@@ -23,7 +23,7 @@ class InitWidget
 	public function includeTemplate() {
 //		register_widget('MyPlugin\Widgets\WidgetCategory' );
 		register_widget('MyPlugin\Widgets\WidgetRecentPost' );
-		register_widget('MyPlugin\Widgets\WidgetTagCloud' );
+		register_widget('MyPlugin\Widgets\WidgetsFooterSocial' );
 	}
 
 	// import file javascript
