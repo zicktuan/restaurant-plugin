@@ -6,7 +6,7 @@ class WidgetsFooterSocial extends AbstractWidget
     function __construct()
     {
         // Instantiate the parent object
-        parent::__construct(false, 'Widget Footer Social');
+        parent::__construct(false, 'Awesome Footer Social');
     }
 
     function widget($args, $instance)
@@ -17,6 +17,7 @@ class WidgetsFooterSocial extends AbstractWidget
     function update($new_instance, $old_instance)
     {
         $instance = $old_instance;
+        $instance['title'] = sanitize_text_field($new_instance['title']);
         $instance['fb'] = sanitize_text_field($new_instance['fb']);
         $instance['gplus'] = sanitize_text_field($new_instance['gplus']);
         $instance['pin'] = sanitize_text_field($new_instance['pin']);
@@ -24,12 +25,12 @@ class WidgetsFooterSocial extends AbstractWidget
         $instance['twitter'] = sanitize_text_field($new_instance['twitter']);
         $instance['ytb'] = sanitize_text_field($new_instance['ytb']);
 
-
         return $instance;
     }
 
     function form($instance)
     {
+        $title = !empty($instance['title']) ? $instance['title'] : '';
         $fb = !empty($instance['fb']) ? $instance['fb'] : '';
         $gplus = !empty($instance['gplus']) ? $instance['gplus'] : '';
         $pin = !empty($instance['pin']) ? $instance['pin'] : '';
@@ -39,25 +40,17 @@ class WidgetsFooterSocial extends AbstractWidget
 
         ?>
         <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'bookawesome'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>"
+                   name="<?php echo $this->get_field_name('title'); ?>" type="text"
+                   value="<?php echo esc_attr($title); ?>"/>
+        </p>
+
+        <p>
             <label for="<?php echo $this->get_field_id('fb'); ?>"><?php _e('Facebook:', 'bookawesome'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('fb'); ?>"
                    name="<?php echo $this->get_field_name('fb'); ?>" type="text"
                    value="<?php echo esc_attr($fb); ?>"/>
-        </p>
-
-
-        <p>
-            <label for="<?php echo $this->get_field_id('gplus'); ?>"><?php _e('Google Plus:', 'bookawesome'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('gplus'); ?>"
-                   name="<?php echo $this->get_field_name('gplus'); ?>" type="text"
-                   value="<?php echo esc_attr($gplus); ?>"/>
-        </p>
-
-        <p>
-            <label for="<?php echo $this->get_field_id('pin'); ?>"><?php _e('Pinterest:', 'bookawesome'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('pin'); ?>"
-                   name="<?php echo $this->get_field_name('pin'); ?>" type="text"
-                   value="<?php echo esc_attr($pin); ?>"/>
         </p>
 
         <p>
