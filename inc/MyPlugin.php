@@ -25,7 +25,7 @@ class MyPlugin
 
     protected function __construct(){
         $this->loadModule();
-
+        $this->customPage();
         $this->init();
     }
 
@@ -49,6 +49,11 @@ class MyPlugin
 
     public function themeSettings(){
         $this->themeSettings = new ThemeSettings\ThemeSettingInit;
+    }
+
+    public function customPage(){
+        require_once 'AdminPage/Init.php';
+        AdminPage\Init::getInstance();
     }
 
     /**

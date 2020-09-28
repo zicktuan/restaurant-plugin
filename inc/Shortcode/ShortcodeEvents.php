@@ -42,18 +42,25 @@
          * @see vc_lean_map()
          */
         public function map() {
-            $args = array(
-                'posts_per_page' => -1,
-                'post_type'      => 'awe_events_pt',
-            );
-        $listPost = get_posts( $args );
-        $argsPost = [];
-        foreach ($listPost as $value) {
-            $tmp          = [];
-            $tmp['label'] = $value->post_title;
-            $tmp['value'] = $value->ID;
-            $argsPost[]   = $tmp;
-        }
+//            $args = array(
+//                'posts_per_page' => -1,
+//                'post_type'      => 'awe_events_pt',
+//            );
+//            $listPost = get_posts( $args );
+//            $argsPost = [];
+//            foreach ($listPost as $value) {
+//                $tmp          = [];
+//                $tmp['label'] = $value->post_title;
+//                $tmp['value'] = $value->ID;
+//                $argsPost[]   = $tmp;
+//            }
+
+            $listCat = [];
+            $listCatSystem = get_categories();
+            foreach ($listCatSystem as $value) {
+                $listCat[$value->name] = $value->term_id;
+            }
+
 
             $params = array(
                 array(
@@ -67,20 +74,34 @@
                     "param_name" => "awe_event_title",
                 ),
                 array(
-                    'type'       => 'autocomplete',
-                    'param_name' => 'awe_list_event',
-                    'heading'    => esc_html__('Ưu đãi', 'bookawesome'),
-                    'settings'   => array(
-                        'multiple'       => true,
-                        'sortable'       => true,
-                        'min_length'     => 1,
-                        'no_hide'        => true,
-                        'unique_values'  => true,
-                        'display_inline' => true,
-                        'values'         => $argsPost
-                    ),
-                    'save_always' => true,
+                    "type"       => "dropdown",
+                    "param_name" => "awe_list_event",
+                    "heading"    => esc_html__("Danh mục", "bookawesome"),
+                    "value"      => $listCat
                 ),
+                array(
+                    'type'       => 'textfield',
+                    'param_name' => 'number_post',
+                    'heading'    => esc_html__('Số bài hiển thị', 'bookawesome'),
+                    'std'        => '3'
+                ),
+
+
+//                array(
+//                    'type'       => 'autocomplete',
+//                    'param_name' => 'awe_list_event',
+//                    'heading'    => esc_html__('Ưu đãi', 'bookawesome'),
+//                    'settings'   => array(
+//                        'multiple'       => true,
+//                        'sortable'       => true,
+//                        'min_length'     => 1,
+//                        'no_hide'        => true,
+//                        'unique_values'  => true,
+//                        'display_inline' => true,
+//                        'values'         => $argsPost
+//                    ),
+//                    'save_always' => true,
+//                ),
             );
 
             return array(

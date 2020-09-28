@@ -15,8 +15,8 @@ class BookTablePostType extends AbstractPostType {
      * @return void
      */
     public function metaBox() {
-//        add_action('add_meta_boxes', array(new TourMetaBox($this), 'register'));
-//        add_action('add_meta_boxes', array(new TourGalleryMetaBox($this), 'register'));
+        add_filter( 'manage_awe_res_posts_columns', array( $this, 'set_custom_edit_res_columns' ) );
+        add_action( 'manage_awe_res_posts_custom_column' , array( $this, 'custom_res_column') , 10, 2 );
     }
 
     public function labels() {
@@ -34,7 +34,7 @@ class BookTablePostType extends AbstractPostType {
             'new_item'               => __('New Awe Events', 'bookawesome'),
             'edit_item'              => __('Chỉnh sửa ưu đãi', 'bookawesome'),
             'update_item'            => __('Update Awe Reservation', 'bookawesome'),
-            'search_items'           => __('Search Awe Reservation', 'bookawesome'),
+            'search_items'           => __('Search', 'bookawesome'),
             'not_found'              => __('Not found', 'bookawesome'),
             'not_found_in_trash'     => __('Not found in Trash', 'bookawesome'),
             'featured_image'         => __('Featured Image', 'bookawesome'),
@@ -73,5 +73,23 @@ class BookTablePostType extends AbstractPostType {
     public function postTypeName() {
         return $this->posType;
     }
+
+    public function set_custom_edit_res_columns($columns) {
+        $columns['tour_order'] = __( 'Order', 'bookawesome' );
+        $columns['views']      = __( 'Views', 'bookawesome' );
+        return $columns;
+    }
+
+
+    public function custom_res_column( $column) {
+        if( 'tour_order' ==  $column) {
+            echo '12321312';
+        }
+        if( 'views' ==  $column) {
+            echo 'views';
+        }
+    }
+
+
 
 }
