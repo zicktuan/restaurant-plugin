@@ -21,7 +21,7 @@
                                             <h5><a href="#"><?php echo !empty($item['name']) ? $item['name'] : '' ?></a></h5>
                                             <h5 class="restbeef_menu_price">
                                                 <del><?php echo !empty($item['old_price']) ? $item['old_price'] : '' ?></del>
-                                                $<?php echo !empty($item['price']) ? $item['price'] : '' ?>
+                                                <?php echo !empty($item['price']) ? $item['price'] : '' ?>
                                             </h5>
                                         </div>
                                         <div class="restbeef_menu_item_content">
@@ -48,7 +48,7 @@
                                             <h5><a href="#"><?php echo !empty($item['name']) ? $item['name'] : '' ?></a></h5>
                                             <h5 class="restbeef_menu_price">
                                                 <del><?php echo !empty($item['old_price']) ? $item['old_price'] : '' ?></del>
-                                                $<?php echo !empty($item['price']) ? $item['price'] : '' ?>
+                                                <?php echo !empty($item['price']) ? $item['price'] : '' ?>
                                             </h5>
                                         </div>
                                         <div class="restbeef_menu_item_content">

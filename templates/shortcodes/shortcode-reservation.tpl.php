@@ -1,17 +1,18 @@
 <div class="awe-res-popup-reservation">
+    <div class="awe-res-popup-reservation-content">
 
-    <div class="restbeef_block restbeef_js_margin restbeef_intro_block" data-margin="0 0 80px 0">
-        <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6 align_center">
-                <p>If you plan your leisure in advance and do not want to get into a situation when the planned dinner is canceled due to the lack of free seats, reserve a table in advance. You can reserve a table by filling out the form below.</p>
+        <div class="restbeef_block restbeef_js_margin restbeef_intro_block">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6 align_center awe-desc-wrap-css">
+                    <p><?php echo !empty($atts['awe_reservation_desc']) ? $atts['awe_reservation_desc'] : '' ?></p>
+                </div>
+                <div class="col-3"></div>
             </div>
-            <div class="col-3"></div>
         </div>
-    </div>
 
-    <div class="restbeef_block restbeef_js_margin" data-margin="0 0 90px 0">
-        <div class="restbeef_block_inner">
+        <div class="restbeef_block restbeef_js_margin" data-margin="0 0 90px 0">
+        <div class="restbeef_block_inner awe-form-reservation-wrap">
             <form name="reservation" class="restbeef_reservation_form" id="reservation_form" method="post">
                 <div class="row">
                     <div class="col-4">
@@ -63,5 +64,7 @@
         </div>
     </div>
 
+        <a href="#" class="close awe-close-popup"></a>
+    </div>
 
 </div>
