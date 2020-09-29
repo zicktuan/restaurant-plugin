@@ -30,6 +30,7 @@ class Blog extends SettingFactory
         return $this->fieldsSettings;
     }
 
+
     public function Blog() {
         $setting = [
             [
@@ -37,6 +38,16 @@ class Blog extends SettingFactory
                 'id'          => 'general',
                 'type'        => 'tab',
                 'section'     => 'blog_setting',
+            ],
+            [
+                'id'          => 'awe_config_show_blog',
+                'label'       => __( 'Chế Độ Hiển Thị', 'bookawesome' ),
+                'type'        => 'select',
+                'section'     => 'blog_setting',
+                'choices'	  => [
+                    ['value' => '0', 'label' => __( 'No Sidebar', 'bookawesome' )],
+                    ['value' => '1', 'label' => __( 'Sidebar', 'bookawesome' )],
+                ]
             ],
             [
                 'id'      => 'blog_bg',

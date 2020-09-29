@@ -37,6 +37,16 @@ class PageMetaBox extends AbstractMetaBox
                     'id'    => 'awe_banner_page',
                     'type'  => 'upload',
                 ],
+                [
+                    'label' => __('Sub title', 'bookawesome'),
+                    'id'    => 'awe_sub_title_page',
+                    'type'  => 'text',
+                ],
+                [
+                    'label' => __('Title', 'bookawesome'),
+                    'id'    => 'awe_title_page',
+                    'type'  => 'text',
+                ],
             ]
         ];
 

@@ -8,7 +8,6 @@ use MyPlugin\Shortcode\ShortcodeEvents;
 
 use MyPlugin\Shortcode\ShortcodeFreshlyTaste;
 use MyPlugin\Shortcode\ShortcodeContacts;
-use MyPlugin\Shortcode\ShortcodeBannerAbout;
 use MyPlugin\Shortcode\About\ShortcodeGeneralIntroduction;
 use MyPlugin\Shortcode\About\ShortcodeAboutFrist;
 use MyPlugin\Shortcode\About\ShortcodeAboutSecond;
@@ -40,7 +39,6 @@ class ShortcodeInit
 		new ShortcodeFeedBack($this);
 		new ShortcodeEvents($this);
 		new ShortcodeContacts($this);
-		new ShortcodeBannerAbout($this);
 		new ShortcodeGeneralIntroduction($this);
 		new ShortcodeAboutFrist($this);
 		new ShortcodeAboutSecond($this);

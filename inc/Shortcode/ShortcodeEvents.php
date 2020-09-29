@@ -42,18 +42,6 @@
          * @see vc_lean_map()
          */
         public function map() {
-//            $args = array(
-//                'posts_per_page' => -1,
-//                'post_type'      => 'awe_events_pt',
-//            );
-//            $listPost = get_posts( $args );
-//            $argsPost = [];
-//            foreach ($listPost as $value) {
-//                $tmp          = [];
-//                $tmp['label'] = $value->post_title;
-//                $tmp['value'] = $value->ID;
-//                $argsPost[]   = $tmp;
-//            }
 
             $listCat = [];
             $listCatSystem = get_categories();
@@ -86,22 +74,6 @@
                     'std'        => '3'
                 ),
 
-
-//                array(
-//                    'type'       => 'autocomplete',
-//                    'param_name' => 'awe_list_event',
-//                    'heading'    => esc_html__('Ưu đãi', 'bookawesome'),
-//                    'settings'   => array(
-//                        'multiple'       => true,
-//                        'sortable'       => true,
-//                        'min_length'     => 1,
-//                        'no_hide'        => true,
-//                        'unique_values'  => true,
-//                        'display_inline' => true,
-//                        'values'         => $argsPost
-//                    ),
-//                    'save_always' => true,
-//                ),
             );
 
             return array(

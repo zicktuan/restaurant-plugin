@@ -31,6 +31,8 @@
             $atts = vc_map_get_attributes($this->get_name(), $atts);
             $atts = array_map('trim', $atts);
 
+            $listItems = vc_param_group_parse_atts( $atts['items'] );
+
             ob_start();
             include $this->parent->locateTemplate('menu/shortcode-menu-1.tpl.php');
             return ob_get_clean();
@@ -46,47 +48,56 @@
         public function map() {
             $params = array(
                 array(
-                    'type'       => 'textfield',
-                    'param_name' => 'awe_contact_form_sub_title',
-                    'heading'    => esc_html__('Sub title', 'bookawesome')
+                    'type'       => 'attach_image',
+                    'param_name' => 'awe_menu_1_img',
+                    'heading'    => esc_html__('Ảnh', 'bookawesome')
                 ),
                 array(
                     'type'       => 'textfield',
-                    'param_name' => 'awe_contact_form_title',
-                    'heading'    => esc_html__('Title', 'bookawesome')
+                    'param_name' => 'awe_menu_1_sub_title',
+                    'heading'    => esc_html__('Sub Title', 'bookawesome')
                 ),
                 array(
                     'type'       => 'textfield',
-                    'param_name' => 'awe_contact_email',
-                    'heading'    => esc_html__('Email', 'bookawesome'),
-                    'std'        => 'Email',
-                    'desc'       => 'Text ô input khi đang trống'
+                    'param_name' => 'awe_menu_1_title',
+                    'heading'    => esc_html__('Title', 'bookawesome'),
                 ),
                 array(
-                    'type'       => 'textfield',
-                    'param_name' => 'awe_contact_form_name',
-                    'heading'    => esc_html__('Name', 'bookawesome'),
-                    'std'        => 'Tên khách hàng',
-                    'desc'       => 'Text ô input khi đang trống'
-                ),
-                array(
-                    'type'       => 'textfield',
-                    'param_name' => 'awe_contact_form_content',
-                    'heading'    => esc_html__('Content', 'bookawesome'),
-                    'std'        => 'Ý kiến khách hàng',
-                    'desc'       => 'Text ô input khi đang trống'
-                ),
-                array(
-                    'type'       => 'textfield',
-                    'param_name' => 'awe_contact_form_btn_name',
-                    'heading'    => esc_html__('Button name', 'bookawesome'),
-                    'std'        => 'Gửi tin nhắn của bạn',
-                    'desc'       => 'Text ô input khi đang trống'
-                ),
+                    'type'       => 'param_group',
+                    'param_name' => 'items',
+                    'heading'    => esc_html__( 'Danh sách thực đơn', 'bookawesome' ),
+                    'params'     => array(
+                        array(
+                            'type'       => 'textfield',
+                            'param_name' => 'name',
+                            'heading'    => esc_html__('Tên món', 'bookawesome')
+                        ),
+                        array(
+                            'type'       => 'textfield',
+                            'param_name' => 'old_price',
+                            'heading'    => esc_html__('Giá tiền cũ', 'bookawesome')
+                        ),
+                        array(
+                            'type'       => 'textfield',
+                            'param_name' => 'price',
+                            'heading'    => esc_html__('Giá tiền', 'bookawesome')
+                        ),
+                        array(
+                            'type'       => 'textarea',
+                            'param_name' => 'desc',
+                            'heading'    => esc_html__('Mô tả ngắn', 'bookawesome')
+                        ),
+                        array(
+                            'type'       => 'textfield',
+                            'param_name' => 'size',
+                            'heading'    => esc_html__('Size', 'bookawesome')
+                        ),
+                    )
+                )
             );
 
             return array(
-                'name'        => esc_html__('Menu 1', 'bookawesome'),
+                'name'        => esc_html__('Menu', 'bookawesome'),
                 'description' => esc_html__('Trang Thực Đơn', 'bookawesome'),
                 'category'    => $this->get_category(),
                 'icon'        => $this->get_icon(),

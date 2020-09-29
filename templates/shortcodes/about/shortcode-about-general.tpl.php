@@ -1,4 +1,4 @@
-<div class="restbeef_block restbeef_team_block restbeef_js_margin" data-margin="-100px 0 90px 0" style="margin: -100px 0px 90px;">
+<div class="restbeef_block restbeef_team_block restbeef_js_margin" data-margin="-100px 0 90px 0">
     <div class="restbeef_block_inner">
         <div class="restbeef_content_box02 align_center">
             <h2>
