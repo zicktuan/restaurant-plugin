@@ -25,6 +25,7 @@ class General extends SettingFactory
 
 	public function settings(){
 	    $this->general();
+	    $this->listMail();
 		$this->header();
 		$this->footer();
 		return $this->fieldsSettings;
@@ -52,6 +53,40 @@ class General extends SettingFactory
                         'type'  => 'text',
                     ]
                 ],
+            ],
+
+        ];
+        $this->setListSettings($settings);
+    }
+
+    public function listMail() {
+        $settings = [
+            [
+                'label'       => __( 'List Mail', 'bookawesome' ),
+                'id'          => 'list_mail',
+                'type'        => 'tab',
+                'section'     => 'general_setting',
+            ],
+            [
+                'id'          => 'bas_email_to',
+                'label'       => __( 'Email to (*)', 'bookawesome' ),
+                'type'        => 'text',
+                'section'     => 'general_setting',
+                'desc'        => ' '
+            ],
+            [
+                'id'          => 'bas_email_cc_to',
+                'label'       => __( 'CC to', 'bookawesome' ),
+                'type'        => 'text',
+                'section'     => 'general_setting',
+                'desc'        => ' '
+            ],
+            [
+                'id'          => 'bas_email_bcc_to',
+                'label'       => __( 'BCC to', 'bookawesome' ),
+                'type'        => 'text',
+                'section'     => 'general_setting',
+                'desc'        => ' '
             ],
 
         ];
