@@ -68,21 +68,21 @@ class General extends SettingFactory
                 'section'     => 'general_setting',
             ],
             [
-                'id'          => 'bas_email_to',
+                'id'          => 'awe_email_to',
                 'label'       => __( 'Email to (*)', 'bookawesome' ),
                 'type'        => 'text',
                 'section'     => 'general_setting',
                 'desc'        => ' '
             ],
             [
-                'id'          => 'bas_email_cc_to',
+                'id'          => 'awe_email_cc_to',
                 'label'       => __( 'CC to', 'bookawesome' ),
                 'type'        => 'text',
                 'section'     => 'general_setting',
                 'desc'        => ' '
             ],
             [
-                'id'          => 'bas_email_bcc_to',
+                'id'          => 'awe_email_bcc_to',
                 'label'       => __( 'BCC to', 'bookawesome' ),
                 'type'        => 'text',
                 'section'     => 'general_setting',

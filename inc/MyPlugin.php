@@ -26,7 +26,16 @@ class MyPlugin
     protected function __construct(){
         $this->loadModule();
         $this->customPage();
+        $this->includeFunctionProgram();
         $this->init();
+    }
+
+    /**
+     * Include file module handle
+     * @return void
+     */
+    protected function includeFunctionProgram() {
+        require_once 'Help/HelpFunction.php';
     }
 
     public function init(){

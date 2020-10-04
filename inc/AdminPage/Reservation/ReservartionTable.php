@@ -122,6 +122,7 @@
 
             global $myplugin;
             $phone = isset($_GET['phone']) ? $_GET['phone'] : '';
+            $date  = isset($_GET['date']) ? $_GET['date'] : '';
 
             $columns  = $this->get_columns();
             $hidden   = [];
@@ -136,23 +137,35 @@
             /** Process bulk action */
             $this->process_bulk_action();
 
-            if($phone) {
-                $args = array(
-                    'post_type'     => 'awe_reservation',
-                    'meta_query' => array(
-                        array(
-                            'key' => 'awe_reservation_phone',
-                            'value' => $phone,
-                            'compare' => 'LIKE'
-                        )
-                    )
-                );
-            } else {
-                $args = array(
-                    'post_type'     => 'awe_reservation',
+            $args = array(
+                'post_type'     => 'awe_reservation',
+            );
+
+            $phoneQuery = '';
+            if ($phone) {
+                $phoneQuery = array(
+                    'key'     => 'awe_reservation_phone',
+                    'value'   => $phone,
+                    'compare' => 'LIKE',
                 );
             }
 
+            $dateQuery = '';
+            if ($date) {
+                $dateQuery = array(
+                    'key'     => 'awe_reservation_date',
+                    'value'   => $date,
+                    'compare' => 'LIKE',
+                );
+            }
+
+            if ( $phone || $date || ($phone && $date) ) {
+                $args['meta_query'] = array(
+                    'relation' => 'AND',
+                    $dateQuery,
+                    $phoneQuery
+                );
+            }
 
             $result = new \WP_Query($args);
 
