@@ -1,6 +1,7 @@
 <?php
 
     namespace MyPlugin\Params\Reservation;
+    use MyPlugin\Params\Reservation\Backend\ReservationBackend;
 
 
     /**
@@ -41,22 +42,15 @@
         }
 
         protected function __construct(){
-            $this->frontEndAjax();
             $this->backEndAjax();
         }
 
         public function init(){
         }
 
-
-
-        public function frontEndAjax()
-        {
-
-        }
-
         public function backEndAjax()
         {
+            new ReservationBackend;
         }
 
         public function enqueueScripts()

@@ -23,25 +23,25 @@
 
         function column_name($item)
         {
-            $inforMeta = get_post_meta($item, 'awe_reservation', true);
+            $inforMeta = get_post_meta($item, 'awe_reservation_meta', true);
             return !empty($inforMeta['name']) ? $inforMeta['name'] : '';
         }
 
         function column_phone($item)
         {
-            $inforMeta = get_post_meta($item, 'awe_reservation', true);
-            return !empty($inforMeta['phone']) ? $inforMeta['phone'] : '';
+            $phone = get_post_meta($item, 'awe_reservation_phone', true);
+            return !empty($phone) ? $phone : '';
         }
 
         function column_info($item)
         {
             $output   = '';
 
-            $inforMeta = get_post_meta($item, 'awe_reservation', true);
+            $inforMeta = get_post_meta($item, 'awe_reservation_meta', true);
 
             $output .= 'Email: ' . (!empty($inforMeta['mail']) ? $inforMeta['mail'] : '');
             $output .= '<br/>';
-            $output .= 'Thời gian: ' .  (!empty($inforMeta['time']) ? $inforMeta['time'] : '') . ' ' . (!empty($inforMeta['hour']) ? $inforMeta['hour'] : '');
+            $output .= 'Thời gian: ' .  (!empty($inforMeta['time'] && (0 === $inforMeta['time']) ) ? 'Sáng' : 'Tối') . ' ' . (!empty($inforMeta['hour']) ? $inforMeta['hour'] : '');
             $output .= '<br/>';
             $output .= 'Người lớn: ' .  (!empty($inforMeta['adult']) ? $inforMeta['adult'] : 0);
             $output .= '<br/>';
@@ -51,17 +51,19 @@
 
         function column_book_date($item)
         {
-            $inforMeta = get_post_meta($item, 'awe_reservation', true);
-            return !empty($inforMeta['date']) ? $inforMeta['date'] : '';
+            $bookDate = get_post_meta($item, 'awe_reservation_date', true);
+            return !empty($bookDate) ? date('Y/m/d', strtotime($bookDate)) : '';
         }
 
         function column_status($item)
         {
             $output = '';
-            $inforMeta = get_post_meta($item, 'awe_reservation', true);
+            $status = get_post_meta($item, 'awe_reservation_status', true);
 
-            if (0 == $inforMeta['status']) {
-                $output .= '<a href="#" class="awe-admin-status">Đang chờ</a>';
+            if (0 == $status) {
+                $output .= '<a href="#" data-id="'.$item.'" class="awe-admin-status">Đang chờ</a>';
+            } else {
+                $output .= '<p data-id="'.$item.'" class="awe-admin-status-success" style="color: green;">Đã nhận bàn</p>';
             }
 
             return $output;
@@ -119,6 +121,8 @@
         public function prepare_items() {
 
             global $myplugin;
+            $phone = isset($_GET['phone']) ? $_GET['phone'] : '';
+
             $columns  = $this->get_columns();
             $hidden   = [];
             $sortable = $this->get_sortable_columns();
@@ -132,24 +136,36 @@
             /** Process bulk action */
             $this->process_bulk_action();
 
-            $result = new \WP_Query(['post_type' => 'awe_reservation',]);
+            if($phone) {
+                $args = array(
+                    'post_type'     => 'awe_reservation',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'awe_reservation_phone',
+                            'value' => $phone,
+                            'compare' => 'LIKE'
+                        )
+                    )
+                );
+            } else {
+                $args = array(
+                    'post_type'     => 'awe_reservation',
+                );
+            }
+
+
+            $result = new \WP_Query($args);
 
             $argsId = [];
 
             if($result->have_posts() ) : while ( $result->have_posts() ) : $result->the_post(); ?>
                 <?php
                 $argsId[] = get_the_ID();
-
                 ?>
             <?php endwhile; endif;
 
             $this->items = $argsId;
 
-//            $bk_search_key = isset( $_REQUEST['s'] ) ? wp_unslash( trim( $_REQUEST['s'] ) ) : '';
-//            if( $bk_search_key ) {
-//                $this->items = $this->filter_table_data( $this->items, $bk_search_key );
-//            }
-//
 //            $per_page = 5;
 //            $current_page = $this->get_pagenum();
 //            $total_items = count($this->items);
@@ -161,16 +177,5 @@
 //            $this->items = $found_data;
         }
 
-//        function filter_table_data($data_item, $search_key) {
-//            $filtered_table_data = array_values( array_filter( $data_item, function( $row ) use( $search_key ) {
-//                foreach( $row as $row_val ) {
-//                    if( stripos( $row_val, $search_key ) !== false ) {
-//                        return true;
-//                    }
-//                }
-//            } ) );
-//
-//            return $filtered_table_data;
-//        }
 
     }

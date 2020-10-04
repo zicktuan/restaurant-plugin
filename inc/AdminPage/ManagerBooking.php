@@ -17,11 +17,28 @@
         public function __construct()
         {
             add_menu_page('Quản lý đặt bàn', 'Quản lý đặt bàn', 'manage_options', $this->pageReservation, array($this, 'pageReservation'), 'dashicons-book-alt', 5);
+            add_action('admin_enqueue_scripts', array($this, 'pageScripts'));
         }
 
         public function pageReservation(){
             echo '<h1 class="wp-heading-inline">Quản lý đặt bàn</h1>';
             require_once MYPLUGIN_PLUGIN_DIR . 'inc/AdminPage/Reservation/layout/reservation-table.php';
+        }
+
+        public function pageScripts() {
+            global $myplugin;
+            if (isset($_GET['page'])) {
+                if ( 'manager-reservation' == $_GET['page'] ) {
+                    wp_enqueue_script( 'jquery-admin', MYPLUGIN_BASE_URL_PLUGIN . '/assets/backend/js/jquery.min.js', ['jquery'], $myplugin->version, true );
+                    wp_enqueue_script( 'manager-reservation', MYPLUGIN_BASE_URL_PLUGIN . '/assets/backend/js/manager-reservation.js', ['jquery'], $myplugin->version, true );
+                    wp_localize_script('jquery-admin', 'awe_admin',
+                        array(
+                            'url' => admin_url(),
+                        )
+                    );
+                }
+            }
+
         }
 
     }

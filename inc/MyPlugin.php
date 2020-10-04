@@ -36,13 +36,15 @@ class MyPlugin
          new PostType\PostTypeInit;
         // new Taxonomies\TaxonomiesInit;
 
-        $this->themeSettings();
+         $this->themeSettings();
 
          if ( in_array( 'js_composer/js_composer.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
              $this->shortcode = new Shortcode\ShortcodeInit;
          }
 
-        $this->widgets = new Widgets\InitWidget;
+         $this->widgets = new Widgets\InitWidget;
+
+         $this->reservation()->init();
 
         do_action('nautzick_after_init');
     }
@@ -55,6 +57,15 @@ class MyPlugin
         require_once 'AdminPage/Init.php';
         AdminPage\Init::getInstance();
     }
+
+    /**
+     * Reservation singleton load
+     * @return void
+     */
+    public function reservation(){
+        return Params\Reservation\Init::getInstance();
+    }
+
 
     /**
      * load_module.
