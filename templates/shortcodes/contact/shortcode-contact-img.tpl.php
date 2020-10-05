@@ -10,7 +10,7 @@
 
                 <?php echo !empty($atts['awe_contact_img_title']) ? $atts['awe_contact_img_title'] : '' ?>
             </h2>
-            <?php echo !empty($atts['awe_contact_img_btn_name']) ? '<a href="'.$atts['awe_contact_img_btn_url'].'" class="restbeef_button">'.$atts['awe_contact_img_btn_name'].'</a>' : '' ?>
+            <?php echo !empty($atts['awe_contact_img_btn_name']) ? '<a href="'.$atts['awe_contact_img_btn_url'].'" class="restbeef_button awe-btn-opend-popup-js">'.$atts['awe_contact_img_btn_name'].'</a>' : '' ?>
         </div>
     </div>
 </div>
