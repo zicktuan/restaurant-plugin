@@ -1,5 +1,4 @@
-<div class="wrap bk-wrap">
-    <div class="tablenav top">
+<div class="tablenav top">
     <?php require_once( MYPLUGIN_PLUGIN_DIR. 'inc/AdminPage/Reservation/layout/reservation-action.php'); ?>
     <?php
         $table = new \MyPlugin\AdminPage\Reservation\ReservartionTable();
@@ -12,5 +11,4 @@
             $table->display(); ?>
     </form>
     <br class="clear">
-</div>
 </div>

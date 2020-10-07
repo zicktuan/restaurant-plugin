@@ -1,8 +1,6 @@
 <?php
     namespace MyPlugin\AdminPage;
 
-    use MyPlugin\AdminPage\Reservation\ReservartionTable;
-
     /**
      * @author lookawesome team
      * @version 1.0
@@ -21,8 +19,15 @@
         }
 
         public function pageReservation(){
-            echo '<h1 class="wp-heading-inline">Quản lý đặt bàn</h1>';
-            require_once MYPLUGIN_PLUGIN_DIR . 'inc/AdminPage/Reservation/layout/reservation-table.php';
+            ?>
+            <div class="wrap bk-wrap" style="margin: 10px 20px 100% 2px;">
+                <h1 class="wp-heading-inline">Quản lý đặt bàn</h1>
+                <hr class="wp-header-end">
+                <?php
+                    require_once MYPLUGIN_PLUGIN_DIR . 'inc/AdminPage/Reservation/layout/reservation-table.php';
+                ?>
+            </div>
+            <?php
         }
 
         public function pageScripts() {

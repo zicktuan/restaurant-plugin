@@ -17,7 +17,7 @@
         {
             return sprintf(
                 '<input type="checkbox" name="id[]" value="%s" class="awe-admin-check-bk" />',
-                $item->id
+                $item
             );
         }
 

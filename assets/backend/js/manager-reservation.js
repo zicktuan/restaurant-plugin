@@ -36,4 +36,56 @@ $(document).ready(function() {
         window.location.href=link;
     });
 
+
+    $('#requestdoaction').click(function() {
+        let getAllId = $('.awe-admin-check-bk'),
+            valSelectorAction = $("#request-bulk-action-selector-top").val(),
+            argsId = new Array();
+        getAllId.map((key, value) => {
+            if ($(value).prop('checked')) {
+                argsId.push($(value).val());
+            }
+        });
+
+        if ('trash' === valSelectorAction) {
+            $.ajax({
+                type: 'post',
+                url: awe_admin.url + 'admin-ajax.php',
+                data: {
+                    action: 'awe_manage_reservation_trash',
+                    argsId
+                },
+                success: (data) => {
+                    let dataResult = JSON.parse(data);
+                    if (true === dataResult) {
+                        document.location.reload(true);
+                    }
+                }
+            })
+        }
+        // document.location.reload(true);
+    });
+
+    $('.bas-admin-manage-res-delete').click(function(e) {
+        let check = confirm('Thông tin khách hàng sẽ bị xóa vĩnh viễn, bạn có chắc chắn muốn xóa?');
+        if (true === check) {
+            let argsId = $(e.currentTarget).attr("data-id"),
+                wrap = $(e.currentTarget).closest('tr');
+            $.ajax({
+                type: 'post',
+                url: awe_admin.url + 'admin-ajax.php',
+                data: {
+                    action: 'awe_manage_reservation_trash',
+                    argsId
+                },
+                success: (data) => {
+                    let dataResult = JSON.parse(data);
+                    if (true === dataResult) {
+                        wrap.remove();
+                    }
+                }
+            });
+        }
+    });
+
 });
