@@ -22,17 +22,19 @@ $(document).ready(function() {
     $('#request-post-query-submit').click(function() {
         let getValPhone = $('.awe-res-reservation-phone-js').val(),
             getValDate  = $('.awe-res-reservation-date-js').val(),
-            urlPageCurrent = $(location).attr('href'),
+            urlPageCurrent = awe_admin.url + '?page=manager-reservation',
             link = '';
 
         if( '' !== getValPhone && '' === getValDate) {
             link = urlPageCurrent + '&phone=' + getValPhone;
         } else if ('' !== getValDate && '' === getValPhone) {
             link = urlPageCurrent + '&date=' + getValDate;
-        } else {
+        } else if ( '' !== getValDate && ''!== getValPhone ) {
             link = urlPageCurrent + '&date=' + getValDate + '&phone=' + getValPhone;
+        } else {
+            link = urlPageCurrent;
         }
-        
+
         window.location.href=link;
     });
 
@@ -87,5 +89,7 @@ $(document).ready(function() {
             });
         }
     });
+
+    $('#datepicker').datepicker();
 
 });

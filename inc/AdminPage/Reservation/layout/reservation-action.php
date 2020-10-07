@@ -11,7 +11,7 @@
 
      <div class="alignleft actions">
          <label for="filter-by-date" class="screen-reader-text">Filter by date</label>
-         <input type="date" class="awe-res-reservation-date-js" placeholder="Ngày nhận bàn" value="<?php echo isset($_GET['date']) ? date('Y/m/d', strtotime($_GET['date'])) : '' ?>">
+         <input id="datepicker" type="text" class="awe-res-reservation-date-js" placeholder="Ngày nhận bàn" value="<?php echo isset($_GET['date']) ? date('Y/m/d', strtotime($_GET['date'])) : '' ?>">
          <input type="text" class="awe-res-reservation-phone-js" placeholder="Số điện thoại" value="<?php echo isset($_GET['phone']) ? $_GET['phone'] : '' ?>">
          <input type="submit" name="filter_action" id="request-post-query-submit" class="button" value="Filter">
      </div>

@@ -28,7 +28,7 @@
                         </div>
                         <div class="restbeef_recent_post_content">
                             <div class="restbeef_recent_post_date">
-                                25 Apr
+                                <?php echo date('d M', strtotime($post->post_date))?>
                             </div>
                             <h5>
                                 <a href="<?php echo get_the_permalink($post->ID)?>"><?php echo $post->post_title ?></a>

@@ -35,6 +35,11 @@
                         'id'    => 'awe_id_video',
                         'type'  => 'text',
                     ],
+                    [
+                        'label' => __('Ngày diễn ra sự kiện( Khuyến mãi )', 'bookawesome'),
+                        'id'    => 'awe_event_meta',
+                        'type'  => 'date-picker',
+                    ],
                 ]
             ];
 

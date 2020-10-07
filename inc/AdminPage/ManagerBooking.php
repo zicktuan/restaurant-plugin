@@ -34,7 +34,9 @@
             global $myplugin;
             if (isset($_GET['page'])) {
                 if ( 'manager-reservation' == $_GET['page'] ) {
-                    wp_enqueue_script( 'jquery-admin', MYPLUGIN_BASE_URL_PLUGIN . '/assets/backend/js/jquery.min.js', ['jquery'], $myplugin->version, true );
+                    wp_enqueue_style('jquery-ui-style', MYPLUGIN_BASE_URL_PLUGIN . '/assets/backend/css/jquery-ui.min.css', $myplugin->version, true);
+                    wp_enqueue_script( 'jquery-ui-min', MYPLUGIN_BASE_URL_PLUGIN . '/assets/backend/js/jquery.min.js', ['jquery'], $myplugin->version, true );
+                    wp_enqueue_script( 'jquery-admin', MYPLUGIN_BASE_URL_PLUGIN . '/assets/backend/js/jquery-ui.min.js', ['jquery'], $myplugin->version, true );
                     wp_enqueue_script( 'manager-reservation', MYPLUGIN_BASE_URL_PLUGIN . '/assets/backend/js/manager-reservation.js', ['jquery'], $myplugin->version, true );
                     wp_localize_script('jquery-admin', 'awe_admin',
                         array(
