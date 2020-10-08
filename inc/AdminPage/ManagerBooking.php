@@ -14,7 +14,7 @@
 
         public function __construct()
         {
-            add_menu_page('Quản lý đặt bàn', 'Quản lý đặt bàn', 'manage_options', $this->pageReservation, array($this, 'pageReservation'), 'dashicons-book-alt', 5);
+            add_menu_page('Quản lý đặt bàn', 'Quản lý đặt bàn', 'manage_options', $this->pageReservation, array($this, 'pageReservation'), 'dashicons-list-view', 5);
             add_action('admin_enqueue_scripts', array($this, 'pageScripts'));
         }
 

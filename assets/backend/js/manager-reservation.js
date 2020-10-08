@@ -12,7 +12,7 @@ $(document).ready(function() {
             success: (data) => {
                 let dataResult = JSON.parse(data);
                 if (dataResult === true) {
-                    $(e.currentTarget).closest('#the-list tr').find('.column-status').html('<p data-id="'+id+'" class="awe-admin-status-success" style="color: green;">Đã nhận bàn</p>');
+                    $(e.currentTarget).closest('#the-list tr').find('.column-status').html('<p data-id="'+id+'" class="awe-admin-status-success" style="color: green;cursor: pointer;">Đã nhận bàn</p>');
                 }
             }
         })

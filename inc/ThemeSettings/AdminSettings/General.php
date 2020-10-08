@@ -18,7 +18,7 @@ class General extends SettingFactory
 	public function section(){
 		return array(
 	        'id'          => 'general_setting',
-			'title' => __('General Settings', 'bookawesome'),
+			'title' => __(' General Settings', 'bookawesome'),
             'icon'  => '<div class="dashicons dashicons-admin-generic"></div>'
 	    );
 	}
@@ -40,19 +40,35 @@ class General extends SettingFactory
                 'section'     => 'general_setting',
             ],
             [
-                'id'       => 'awe_social',
-                'label'    => __( 'Social', 'bookawesome' ),
-                'type'     => 'list-item',
-                'section'  => 'general_setting',
-                'settings' => [
-                    [
-                        'id'    => 'link',
-                        'label' => __( 'Link of title', 'bookawesome' ),
-                        'desc'  => '',
-                        'std'   => '#',
-                        'type'  => 'text',
-                    ]
-                ],
+                'id'          => 'awe_phone_online',
+                'label'       => __( 'Số điện thoại online', 'bookawesome' ),
+                'type'        => 'text',
+                'section'     => 'general_setting',
+                'desc'        => ' '
+            ],
+            [
+                'id'          => 'awe_social_fb',
+                'label'       => __( 'Đường dẫn trang facebook', 'bookawesome' ),
+                'type'        => 'text',
+                'section'     => 'general_setting',
+                'std'         => '#',
+                'desc'        => ' '
+            ],
+            [
+                'id'          => 'awe_social_ins',
+                'label'       => __( 'Đường dẫn instagram', 'bookawesome' ),
+                'type'        => 'text',
+                'section'     => 'general_setting',
+                'std'         => '#',
+                'desc'        => ' '
+            ],
+            [
+                'id'          => 'awe_social_you',
+                'label'       => __( 'Đường dẫn youtube', 'bookawesome' ),
+                'type'        => 'text',
+                'section'     => 'general_setting',
+                'std'         => '#',
+                'desc'        => ' '
             ],
 
         ];
@@ -109,26 +125,26 @@ class General extends SettingFactory
             ],
             [
                 'id'      => 'awe_header_address',
-                'label'   => __( 'Address', 'bookawesome' ),
+                'label'   => __( 'Địa chỉ', 'bookawesome' ),
                 'type'    => 'text',
                 'section' => 'general_setting',
             ],
             [
                 'id'      => 'awe_header_phone',
-                'label'   => __( 'Phone', 'bookawesome' ),
+                'label'   => __( 'Số điện thoại', 'bookawesome' ),
                 'type'    => 'text',
                 'section' => 'general_setting',
             ],
             [
                 'id'      => 'awe_header_time',
-                'label'   => __( 'Operation time', 'bookawesome' ),
+                'label'   => __( 'Thời gian làm việc', 'bookawesome' ),
                 'type'    => 'text',
                 'std'     => '10:00 am - 11:00 pm',
                 'section' => 'general_setting',
             ],
             [
                 'id'      => 'awe_header_desc',
-                'label'   => __( 'Description', 'bookawesome' ),
+                'label'   => __( 'Mô tả ngắn banner', 'bookawesome' ),
                 'type'    => 'textarea-simple',
                 'section' => 'general_setting',
             ],

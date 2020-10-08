@@ -19,7 +19,8 @@ class Blog extends SettingFactory
     {
         return array(
             'id'          => 'blog_setting',
-            'title' => __('Blog', 'bookawesome'),
+            'title' => __(' Blog', 'bookawesome'),
+            'icon'  => '<span class="dashicons dashicons-book-alt"></span>'
         );
     }
 

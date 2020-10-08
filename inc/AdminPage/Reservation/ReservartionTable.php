@@ -63,7 +63,7 @@
             if (0 == $status) {
                 $output .= '<a href="#" data-id="'.$item.'" class="awe-admin-status">Đang chờ</a>';
             } else {
-                $output .= '<p data-id="'.$item.'" class="awe-admin-status-success" style="color: green;">Đã nhận bàn</p>';
+                $output .= '<p data-id="'.$item.'" class="awe-admin-status-success" style="color: green;cursor: pointer;">Đã nhận bàn</p>';
             }
 
             return $output;
@@ -122,7 +122,10 @@
 
             global $myplugin;
             $phone = isset($_GET['phone']) ? $_GET['phone'] : '';
-            $date  = isset($_GET['date']) ? $_GET['date'] : '';
+            $getDate  = isset($_GET['date']) ? $_GET['date'] : '';
+            if(!empty($getDate)) {
+                $date  = date('Y-m-d', strtotime($getDate));
+            }
 
             $columns  = $this->get_columns();
             $hidden   = [];

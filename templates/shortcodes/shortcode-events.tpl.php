@@ -19,6 +19,7 @@
             <?php if(!empty($listPost)): ?>
                 <?php foreach ($listPost as $post):
                     $thumbnail = get_the_post_thumbnail_url($post->ID, '');
+                $dateEvent = get_post_meta($post->ID, 'awe_event_meta', true);
                     ?>
                     <div class="restbeef_recent_post">
                         <div class="restbeef_recent_post_image">
@@ -27,9 +28,15 @@
                             </a>
                         </div>
                         <div class="restbeef_recent_post_content">
-                            <div class="restbeef_recent_post_date">
-                                <?php echo date('d M', strtotime($post->post_date))?>
-                            </div>
+                            <?php if(!empty($dateEvent)): ?>
+                                <div class="restbeef_recent_post_date">
+                                    <?php echo date('d M', strtotime($dateEvent))?>
+                                </div>
+                            <?php else: ?>
+                                <div class="restbeef_recent_post_date">
+                                    <?php echo date('d M', strtotime($post->post_date))?>
+                                </div>
+                            <?php endif ?>
                             <h5>
                                 <a href="<?php echo get_the_permalink($post->ID)?>"><?php echo $post->post_title ?></a>
                             </h5>
