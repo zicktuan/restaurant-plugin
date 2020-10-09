@@ -124,6 +124,10 @@
                                 <td class="bas-td-first"><?php _e("Số trẻ em", "bookawesome"); ?></td>
                                 <td class="bas-td-second"><?php echo $reservationChild ?></td>
                             </tr>
+                            <tr>
+                                <td class="bas-td-first"><?php _e("Cơ sở", "bookawesome"); ?></td>
+                                <td class="bas-td-second"><?php echo $reservationBranch ?></td>
+                            </tr>
                             <tr class="bas-td-bg">
                                 <td class="bas-td-first"><?php _e("Thông tin bổ sung", "bookawesome"); ?></td>
                                 <td class="bas-td-second"><?php echo $reservationDesc ?></td>

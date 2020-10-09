@@ -46,6 +46,8 @@
             $output .= 'Người lớn: ' .  (!empty($inforMeta['adult']) ? $inforMeta['adult'] : 0);
             $output .= '<br/>';
             $output .= 'Trẻ em: ' .  (!empty($inforMeta['child']) ? $inforMeta['child'] : 0);
+            $output .= '<br/>';
+            $output .= 'Cơ sở: ' .  (!empty($inforMeta['branch']) ? $inforMeta['branch'] : '');
             return $output;
         }
 
