@@ -11,14 +11,14 @@
                 <form method="post" id="contact_form">
                     <div class="row">
                         <div class="col-6">
-                            <input type="text" placeholder="<?php echo !empty($atts['awe_contact_form_name']) ? $atts['awe_contact_form_name'] : '' ?>" name="your_name"/>
+                            <input type="text" class="awe-contact-name-mess-js" placeholder="<?php echo !empty($atts['awe_contact_form_name']) ? $atts['awe_contact_form_name'] : '' ?>" name="your_name"/>
                         </div>
                         <div class="col-6">
-                            <input type="email" placeholder="<?php echo !empty($atts['awe_contact_email']) ? $atts['awe_contact_email'] : '' ?>" name="your_email"/>
+                            <input type="email" class="awe-contact-email-mess-js" placeholder="<?php echo !empty($atts['awe_contact_email']) ? $atts['awe_contact_email'] : '' ?>" name="your_email"/>
                         </div>
                     </div>
-                    <textarea placeholder="<?php echo !empty($atts['awe_contact_form_content']) ? $atts['awe_contact_form_content'] : '' ?>" name="your_message"></textarea>
-                    <input type="submit" value="<?php echo !empty($atts['awe_contact_form_btn_name']) ? $atts['awe_contact_form_btn_name'] : '' ?>"/>
+                    <textarea class="awe-contact-send-desc-js" placeholder="<?php echo !empty($atts['awe_contact_form_content']) ? $atts['awe_contact_form_content'] : '' ?>" name="your_message"></textarea>
+                    <input type="submit" class="awe-contact-send-mess-js" value="<?php echo !empty($atts['awe_contact_form_btn_name']) ? $atts['awe_contact_form_btn_name'] : '' ?>"/>
                 </form>
             </div>
             <div class="col-2"></div>

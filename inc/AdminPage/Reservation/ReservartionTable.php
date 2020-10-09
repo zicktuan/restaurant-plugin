@@ -41,7 +41,7 @@
 
             $output .= 'Email: ' . (!empty($inforMeta['mail']) ? $inforMeta['mail'] : '');
             $output .= '<br/>';
-            $output .= 'Thời gian: ' .  (!empty($inforMeta['time'] && (0 === $inforMeta['time']) ) ? 'Sáng' : 'Tối') . ' ' . (!empty($inforMeta['hour']) ? $inforMeta['hour'] : '');
+            $output .= 'Thời gian: ' . ((0 === $inforMeta['time']) ? 'Sáng' : 'Tối') .' '.  (!empty($inforMeta['hour']) ? $inforMeta['hour'] : '');
             $output .= '<br/>';
             $output .= 'Người lớn: ' .  (!empty($inforMeta['adult']) ? $inforMeta['adult'] : 0);
             $output .= '<br/>';
