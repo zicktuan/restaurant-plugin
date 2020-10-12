@@ -18,7 +18,6 @@ use MyPlugin\Shortcode\Contact\ShortcodeMap;
 use MyPlugin\Shortcode\Contact\ShortcodeContactImg;
 use MyPlugin\Shortcode\Contact\ShortcodeContactForm;
 use MyPlugin\Shortcode\Menu\ShortcodeMenu1;
-use MyPlugin\Shortcode\ShortcodeBookTable;
 
 /**
  * @author lookawesome team
@@ -49,7 +48,6 @@ class ShortcodeInit
 		new ShortcodeContactImg($this);
 		new ShortcodeContactForm($this);
 		new ShortcodeMenu1($this);
-		new ShortcodeBookTable($this);
 //		new ShortcodeLatestPosts($this);
 
 	}

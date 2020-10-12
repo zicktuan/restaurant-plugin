@@ -1,10 +1,8 @@
 <div class="restbeef_block">
-    <?php if(!empty($atts['awe_event_title'])): ?>
-        <h2 class="align_center restbeef_js_padding" data-padding="0 0 35px 0">
-            <?php echo !empty($atts['awe_event_sub_title']) ? '<span class="restbeef_up_title">'.$atts['awe_event_sub_title'].'</span>' : ''?>
-            <?php echo $atts['awe_event_title'] ?>
-        </h2>
-    <?php endif; ?>
+    <h2 class="align_center restbeef_js_padding" data-padding="0 0 35px 0">
+        <?php echo !empty($atts['awe_event_sub_title']) ? '<span class="restbeef_up_title">'.$atts['awe_event_sub_title'].'</span>' : ''?>
+        <?php echo !empty($atts['awe_event_title']) ? $atts['awe_event_title'] : '' ?>
+    </h2>
     <?php
         $listPost = get_posts([
             "order"       => isset($value['order_by']) ? $value['order_by'] : "DESC",

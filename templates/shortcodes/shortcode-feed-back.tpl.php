@@ -1,11 +1,9 @@
 <div class="restbeef_block restbeef_js_margin" data-margin="0 0 100px 0">
     <div class="restbeef_block_inner">
-        <?php if(!empty($atts['awe_fb_title'])): ?>
-            <h2 class="align_center restbeef_js_padding" data-padding="0 0 15px 0">
-                <?php echo !empty($atts['awe_fb_sub_title']) ? '<span class="restbeef_up_title">'.$atts['awe_fb_sub_title'].'</span>' : ''?>
-                <?php echo $atts['awe_fb_title'] ?>
-            </h2>
-        <?php endif; ?>
+        <h2 class="align_center restbeef_js_padding" data-padding="0 0 15px 0">
+            <?php echo !empty($atts['awe_fb_sub_title']) ? '<span class="restbeef_up_title">'.$atts['awe_fb_sub_title'].'</span>' : ''?>
+            <?php echo !empty($atts['awe_fb_title']) ? $atts['awe_fb_title'] : ''?>
+        </h2>
 
         <div class="restbeef_testimonials_wrapper restbeef_testimonials_grid restbeef_grig_3columns align_center">
 

@@ -8,12 +8,10 @@
 
             <div class="col-6 restbeef_js_padding" data-padding="50px 50px 50px 0">
                 <div class="restbeef_content_box align_center">
-                    <?php if(!empty($atts['awe_about_title'])): ?>
                     <h2>
                         <?php echo !empty($atts['awe_about_sub_title']) ? '<span class="restbeef_up_title">'.$atts['awe_about_sub_title'].'</span>' : ''?>
-                        <?php echo $atts['awe_about_title'] ?>
+                        <?php echo !empty($atts['awe_about_title']) ? $atts['awe_about_title'] : '' ?>
                     </h2>
-                    <?php endif; ?>
 
                     <?php echo !empty($atts['awe_about_desc']) ? '<p class="align_center restbeef_js_margin" data-margin="0 0 43px 0">'.$atts['awe_about_desc'].'</p>' : ''?>
 

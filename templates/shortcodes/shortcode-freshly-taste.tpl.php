@@ -1,10 +1,8 @@
 <div class="restbeef_block restbeef_js_margin" data-margin="-20px 0 99px 0">
-    <?php if(!empty($atts['awe_ft_title'])): ?>
-        <h2 class="align_center restbeef_js_padding" data-padding="0 0 15px 0">
-            <?php echo !empty($atts['awe_ft_sub_title']) ? '<span class="restbeef_up_title">'.$atts['awe_ft_sub_title'].'</span>' : '' ?>
-            <?php echo $atts['awe_ft_title'] ?>
-        </h2>
-    <?php endif; ?>
+    <h2 class="align_center restbeef_js_padding" data-padding="0 0 15px 0">
+        <?php echo !empty($atts['awe_ft_sub_title']) ? '<span class="restbeef_up_title">'.$atts['awe_ft_sub_title'].'</span>' : '' ?>
+        <?php echo !empty($atts['awe_ft_title']) ? $atts['awe_ft_title'] : '' ?>
+    </h2>
     <div class="restbeef_block_inner">
         <div class="restbeef_recent_products restbeef_grig_3columns">
             <?php if(!empty($listItems[0])): ?>
