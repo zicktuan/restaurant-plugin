@@ -69,25 +69,34 @@ $(document).ready(function() {
     });
 
     $('.bas-admin-manage-res-delete').click(function(e) {
-        let check = confirm('Thông tin khách hàng sẽ bị xóa vĩnh viễn, bạn có chắc chắn muốn xóa?');
-        if (true === check) {
-            let argsId = $(e.currentTarget).attr("data-id"),
-                wrap = $(e.currentTarget).closest('tr');
-            $.ajax({
-                type: 'post',
-                url: awe_admin.url + 'admin-ajax.php',
-                data: {
-                    action: 'awe_manage_reservation_trash',
-                    argsId
-                },
-                success: (data) => {
-                    let dataResult = JSON.parse(data);
-                    if (true === dataResult) {
-                        wrap.remove();
+        Swal.fire({
+            title: '',
+            text: "Thông tin khách hàng sẽ bị xóa vĩnh viễn, bạn có chắc chắn muốn xóa?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#5fd0ba',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (true === result.value) {
+                let argsId = $(e.currentTarget).attr("data-id"),
+                    wrap = $(e.currentTarget).closest('tr');
+                $.ajax({
+                    type: 'post',
+                    url: awe_admin.url + 'admin-ajax.php',
+                    data: {
+                        action: 'awe_manage_reservation_trash',
+                        argsId
+                    },
+                    success: (data) => {
+                        let dataResult = JSON.parse(data);
+                        if (true === dataResult) {
+                            wrap.remove();
+                        }
                     }
-                }
-            });
-        }
+                });
+            }
+        });
     });
 
     $('#datepicker').datepicker();
