@@ -85,6 +85,12 @@
                             'param_name' => 'category',
                             'heading'    => esc_html__('Category', 'bookawesome')
                         ),
+                        array(
+                            'type'       => 'textfield',
+                            'param_name' => 'url',
+                            'heading'    => esc_html__('Url', 'bookawesome'),
+                            'std'        => '#'
+                        ),
                     )
                 )
 

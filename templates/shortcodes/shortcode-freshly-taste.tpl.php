@@ -9,7 +9,7 @@
                 <?php foreach ($listItems as $item): ?>
                 <div class="restbeef_recent_product">
                     <div class="restbeef_recent_product_image">
-                        <a href="#">
+                        <a href="<?php echo !empty($item['url']) ? $item['url'] : '#'?>">
                             <img src="<?php echo !empty($item['img']) ? wp_get_attachment_url($item['img']) : '' ?>" alt="<?php echo !empty($item['dish_name']) ? $item['dish_name'] : ''?>">
                         </a>
                     </div>
@@ -21,8 +21,10 @@
                         </div>
                         <?php endif ?>
                         <h4>
-                            <?php echo !empty($item['category']) ? '<span class="restbeef_up_title">'.$item['category'].'</span>' : '' ?>
-                            <?php echo !empty($item['dish_name']) ? '<a href="#">'.$item['dish_name'].'</a>' : '' ?>
+                            <a href="<?php echo !empty($item['url']) ? $item['url'] : '#'?>">
+                                <?php echo !empty($item['category']) ? '<span class="restbeef_up_title">'.$item['category'].'</span>' : '' ?>
+                            </a>
+                            <?php echo !empty($item['dish_name']) ? '<a href="'.$item['url'].'">'.$item['dish_name'].'</a>' : '' ?>
                         </h4>
                     </div>
                 </div>
